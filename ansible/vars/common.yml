@@ -1,0 +1,7 @@
+---
+    php_ppa: php5
+    doc_root: /vagrant
+    sys_packages: ["git","vim"]
+    dist: precise
+    php_packages: ["php5-intl","php5-sqlite","php5-xdebug","php5-mysql","php5-gd"]
+    nodejs_packages: ["uglifyjs","uglifycss"]

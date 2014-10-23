@@ -1,0 +1,34 @@
+- name: Install PHP Packages
+  sudo: yes
+  apt: pkg={{ item }} state=latest
+  with_items: php_packages
+
+- name: enable xdebug remote
+  lineinfile: dest=/etc/php5/fpm/conf.d/20-xdebug.ini
+              regexp='xdebug.remote_enable ='
+              line='xdebug.remote_enable = on'
+
+- name: enable xdebug connect back
+  lineinfile: dest=/etc/php5/fpm/conf.d/20-xdebug.ini
+              regexp='xdebug.remote_connect_back ='
+              line='xdebug.remote_connect_back = on'
+
+- name: enable xdebug idekey
+  lineinfile: dest=/etc/php5/fpm/conf.d/20-xdebug.ini
+              regexp='xdebug.idekey ='
+              line='xdebug.idekey = "vagrant"'
+
+- name: enable xdebug remote
+  lineinfile: dest=/etc/php5/cli/conf.d/20-xdebug.ini
+              regexp='xdebug.remote_enable ='
+              line='xdebug.remote_enable = on'
+
+- name: enable xdebug connect back
+  lineinfile: dest=/etc/php5/cli/conf.d/20-xdebug.ini
+              regexp='xdebug.remote_connect_back ='
+              line='xdebug.remote_connect_back = on'
+
+- name: enable xdebug idekey
+  lineinfile: dest=/etc/php5/cli/conf.d/20-xdebug.ini
+              regexp='xdebug.idekey ='
+              line='xdebug.idekey = "vagrant"'

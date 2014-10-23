@@ -1,0 +1,5 @@
+mysql:
+  -
+    db: default
+    user: root
+    pass: root
